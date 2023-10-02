@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mieszko Ośrodek Wczasowy</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Dancing+Script|Open+Sans:400,700&display=swap"
+    />
+    <style>
+      /* Resetowanie stylów domyślnych */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      img#strona-glowna-image {
+        width: 100%;
+        height: auto;
+        border-radius: 50px;
+        border-bottom: 7px solid #0088ff;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      /* Styl nagłówka */
+      #site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(34, 34, 34, 0.96);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 40px;
+        color: #f9f9f9;
+      }
+
+      /* Styl nawigacji */
+      nav {
+        background-color: #222;
+        text-align: center;
+      }
+
+      /* Styl przycisku "Menu" */
+      .menu-button {
+        cursor: pointer;
+        background-color: transparent;
+        color: #fdfcfc;
+        border: 2px solid #fffefe;
+        padding: 10px 20px;
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        border-radius: 5px;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .menu-button:hover {
+        background-color: #fff;
+        color: #0088ff;
+        border-color: #0088ff;
+      }
+
+      /* Styl nawigacji głównej */
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #222;
+        width: 200px;
+        border-left: 5px solid #0088ff;
+        border-radius: 20px;
+        right: 15px;
+      }
+
+      nav ul li {
+        display: block;
+        margin: 0;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px;
+        display: block;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #0088ff;
+      }
+
+      /* Pokazanie nawigacji po najechaniu na przycisk "Menu" */
+      .menu-button:hover + ul {
+        display: block;
+      }
+
+      /* Styl stopki */
+      footer {
+        background-color: #222;
+        color: #fff;
+        text-align: center;
+      }
+
+      /* Styl sekcji z opisami zdjęć */
+      section {
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Styl obrazu i jego opisu */
+      figure {
+        text-align: left;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+      }
+
+      figure img {
+        width: 200px;
+        height: 180px;
+        border-radius: 50px;
+        border-left: 5px solid #0088ff;
+        border-right: 5px solid #0088ff;
+      }
+
+      figcaption {
+        margin-top: 10px;
+        font-style: italic;
+        font-size: 14px;
+        color: #333;
+        flex: 1;
+        padding: 30px;
+        margin: 20px;
+        border-radius: 50px;
+        border-left: 5px solid #0088ff;
+        border-right: 5px solid #0088ff;
+        background-color: #b3d0ea;
+      }
+      /* Styl nagłówka dla małych ekranów */
+      @media screen and (max-width: 768px) {
+        #site-header {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+
+        h1 {
+          font-size: 30px;
+        }
+
+        .menu-button {
+          font-size: 16px;
+        }
+      }
+
+      /* Styl nawigacji głównej dla małych ekranów */
+      @media screen and (max-width: 768px) {
+        nav ul {
+          width: 100%; /* Rozwiń nawigację na całą szerokość ekranu */
+          border: none; /* Usuń obramowanie */
+          top: 50px; /* Przesuń nawigację niżej, aby nie kolidowała z nagłówkiem */
+        }
+
+        nav ul li {
+          margin: 10px 0;
+        }
+
+        nav ul li a {
+          padding: 5px;
+        }
+      }
+
+      /* Styl sekcji treści dla małych ekranów */
+      @media screen and (max-width: 768px) {
+        section {
+          padding: 20px;
+          margin: 10px;
+        }
+
+        section h2 {
+          font-size: 24px;
+        }
+
+        section p {
+          font-size: 14px;
+        }
+
+        section ul {
+          margin-left: 10px;
+        }
+
+        section li {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="site-header">
+      <header id="site-header">
+        <h1>Mieszko Ośrodek Wczasowy</h1>
+        <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Strona główna</a></li>
+          <li><a href="atrakcje.html">Atrakcje</a></li>
+          <li><a href="cennik.html">Cennik</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="lokalizacja.html">Lokalizacja</a></li>
+          <li><a href="muzeum.html">Muzeum figur bajkowych i woskowych</a></li>
+          <li><a href="sport.html">Oferta dla sportowców</a></li>
+          <li><a href="pokoje.html">Pokoje</a></li>
+          <li><a href="pakiety.html">Pakiety pobytowe</a></li>
+          <li><a href="regulamin.html">Regulamin</a></li>
+          <li><a href="rezerwacja.html">Rezerwacja</a></li>
+        </ul>
+      </nav>
+    </div>
+    <img id="strona-glowna-image" src="strona_glowna.jpg" alt="Strona Główna" />
+    <section>
+      <h2>Atrakcje</h2>
+      <figure>
+        <img src="sniezka.jpg" alt="Śnieżka" />
+        <figcaption>
+          <b>Śnieżka </b>(czes. Sněžka, niem. Schneekoppe) – najwyższy szczyt w
+          Karkonoszach (1602 m n.p.m.) i jednocześnie w całych Sudetach, a także
+          najwyższy szczyt Czech, województwa dolnośląskiego i całego Śląska.
+          Położona na granicy polsko-czeskiej, góruje nad Kotliną Jeleniogórską,
+          wystając 200 metrów ponad Równię pod Śnieżką. Jest najwybitniejszym
+          szczytem w Polski. Ze szczytu można podziwiać wspaniałe panoramy.
+          Widoczność przy sprzyjających warunkach przekracza 200 km. Jest
+          tłumnie odwiedzana w okresie letnim, rzadziej zimą za względu na
+          warunki atmosferyczne, które utrudniają jej zdobycie.
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="wang.jpg" alt="Kościół Wang" />
+        <figcaption>
+          <b>Kościół Wang</b> to ewangelicki kościół parafialny w Karpaczu w
+          Karkonoszach, przeniesiony w 1842 z miejscowości Vang, leżącej nad
+          jeziorem o tej samej nazwie w Norwegii. Kościół Wang został zbudowany
+          z sosnowych bali w miejscowości Vang w południowej Norwegii, na
+          przełomie XII i XIII w. Powstał jako jeden z ok. tysiąca (przetrwało
+          kilkadziesiąt) norweskich kościołów klepkowych (słupowych) –
+          stavkirke. Uważany jest za najstarszy drewniany kościół w Polsce.
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="park.jpg" alt="Park Miniatur Dolnego Śląska" />
+        <figcaption>
+          <b>Park Miniatur Dolnego Śląska </b> został oficjalnie otwarty 14
+          sierpnia 2003. Mieści się on na terenie wydzielonym z fabryki dywanów
+          w Kowarach. W okresie letnim modele wystawione są na otwartym
+          powietrzu, w zimie jest możliwość oglądania ich w pawilonie. W swoich
+          zbiorach posiada miniatury około czterdziestu obiektów znajdujących
+          się na terenie Dolnego Śląska.
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="sztolnie.jpg" alt="Sztolnie Kowary" />
+        <figcaption>
+          <b>Sztolnie Kowary </b>to oddana 24 kwietnia 2000 podziemna trasa
+          turystyczna o długości ok. 1200 m w nieczynnej kopalni rudy uranu w
+          Kowarach. Kopalnia eksploatowana była w czasie II wojny światowej
+          przez Niemców. Następnie wydobywano w niej uran na potrzeby ZSRR.
+          Prace wydobywcze zakończono w 1973 roku.
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="western.jpg" alt="Western City" />
+        <figcaption>
+          <b>Western City </b>to osadzony w westernowym klimacie park rozrywki,
+          kowbojskie miasteczko, którego drewniane budynki są ściśle wzorowane
+          na zabudowaniach z Dzikiego Zachodu. W centrum miasta znajduje się
+          Saloon, w którym oczywiście możemy się napić „wody ognistej”, jak
+          również zjeść kowbojski posiłek przyrządzony przez saloonowe
+          dziewczęta. Znajdziemy tu również biuro Szeryfa, który strzeże prawa i
+          porządku, Western Press, Sklep Kolonialny, Pocztę. Stojący w pobliżu
+          Saloonu Bank często pada ofiarą napadów żądnych złota rewolwerowców z
+          bandy Morgana, którzy usiłują pokonać szeryfa i przechwycić wielką
+          dostawę złota.
+        </figcaption>
+      </figure>
+    </section>
+    <footer>&copy; 2023 Mieszko Ośrodek Wczasowy by Wiktoria Grubizna</footer>
+
+    <script>
+      // Funkcja do rozwijania/zwijania menu
+      function toggleMenu() {
+        var menu = document.querySelector("nav ul");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mieszko Ośrodek Wczasowy</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Dancing+Script|Open+Sans:400,700&display=swap"
+    />
+    <style>
+      /* Resetowanie stylów domyślnych */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      img#strona-glowna-image {
+        width: 100%;
+        height: auto;
+        border-radius: 50px;
+        border-bottom: 7px solid #0088ff;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      /* Styl nagłówka */
+      #site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(34, 34, 34, 0.96);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 40px;
+        color: #f9f9f9;
+      }
+
+      /* Styl nawigacji */
+      nav {
+        background-color: #222;
+        text-align: center;
+      }
+
+      /* Styl przycisku "Menu" */
+      .menu-button {
+        cursor: pointer;
+        background-color: transparent;
+        color: #fdfcfc;
+        border: 2px solid #fffefe;
+        padding: 10px 20px;
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        border-radius: 5px;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .menu-button:hover {
+        background-color: #fff;
+        color: #0088ff;
+        border-color: #0088ff;
+      }
+
+      /* Styl nawigacji głównej */
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #222;
+        width: 200px;
+        border-left: 5px solid #0088ff;
+        border-radius: 20px;
+        right: 15px;
+      }
+
+      nav ul li {
+        display: block;
+        margin: 0;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px;
+        display: block;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #0088ff;
+      }
+
+      /* Pokazanie nawigacji po najechaniu na przycisk "Menu" */
+      .menu-button:hover + ul {
+        display: block;
+      }
+
+      /* Styl stopki */
+      footer {
+        background-color: #222;
+        color: #fff;
+        text-align: center;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      section {
+        background-color: #d2eeff;
+        padding: 30px;
+        margin: 20px;
+        border-radius: 100px; /* Zmniejszamy zaokrąglenie rogów */
+        border-left: 5px solid #0088ff;
+        border-right: 5px solid #0088ff;
+
+        display: center;
+      }
+      /* Styl nagłówka dla małych ekranów */
+      @media screen and (max-width: 768px) {
+        #site-header {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+
+        h1 {
+          font-size: 30px;
+        }
+
+        .menu-button {
+          font-size: 16px;
+        }
+      }
+
+      /* Styl nawigacji głównej dla małych ekranów */
+      @media screen and (max-width: 768px) {
+        nav ul {
+          width: 100%; /* Rozwiń nawigację na całą szerokość ekranu */
+          border: none; /* Usuń obramowanie */
+          top: 50px; /* Przesuń nawigację niżej, aby nie kolidowała z nagłówkiem */
+        }
+
+        nav ul li {
+          margin: 10px 0;
+        }
+
+        nav ul li a {
+          padding: 5px;
+        }
+      }
+
+      /* Styl sekcji treści dla małych ekranów */
+      @media screen and (max-width: 768px) {
+        section {
+          padding: 20px;
+          margin: 10px;
+        }
+
+        section h2 {
+          font-size: 24px;
+        }
+
+        section p {
+          font-size: 14px;
+        }
+
+        section ul {
+          margin-left: 10px;
+        }
+
+        section li {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="site-header">
+      <header id="site-header">
+        <h1>Mieszko Ośrodek Wczasowy</h1>
+        <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Strona główna</a></li>
+          <li><a href="atrakcje.html">Atrakcje</a></li>
+          <li><a href="cennik.html">Cennik</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="lokalizacja.html">Lokalizacja</a></li>
+          <li><a href="muzeum.html">Muzeum figur bajkowych i woskowych</a></li>
+          <li><a href="sport.html">Oferta dla sportowców</a></li>
+          <li><a href="pokoje.html">Pokoje</a></li>
+          <li><a href="pakiety.html">Pakiety pobytowe</a></li>
+          <li><a href="regulamin.html">Regulamin</a></li>
+          <li><a href="rezerwacja.html">Rezerwacja</a></li>
+        </ul>
+      </nav>
+    </div>
+    <img id="strona-glowna-image" src="strona_glowna.jpg" alt="Strona Główna" />
+    <section id="cennik">
+      <h2>Cennik</h2>
+      <br />
+      <p>
+        <b><u>Ceny od 65 zł/os/dobę:</u></b>
+      </p>
+      <br />
+      <ul>
+        <li>POKÓJ 1-os</li>
+        <li>POKÓJ 2-os</li>
+        <li>POKÓJ 3,4,5 -os</li>
+      </ul>
+      <br />
+      <p>Dzieci do lat 3 śpiący z rodzicami bezpłatnie</p>
+      <br />
+      <p>Dzieci 3-10 lat - zniżki</p>
+      <br />
+      <p>Cena uzależniona jest od terminu, ilości osób oraz długości pobytu.</p>
+      <br />
+      <p>
+        Oferujemy również smaczne obiady i obiadokolacje w formie bufetu
+        szwedzkiego codziennie w godzinach 12 do 19 oraz pyszne pierogi.
+      </p>
+      <br />
+      <p><b>Śniadania:</b> 25 zł/os</p>
+      <br />
+      <p>
+        DOBA W DNIU PRZYJAZDU ROZPOCZYNA SIĘ O <b>15.00 </b>A KOŃCZY O
+        <b>10.00 </b>W DNIU WYJAZDU
+      </p>
+      <br />
+      <p>
+        W naszym obiekcie akceptujemy zwierzęta za dodatkową opłatą<b>
+          30 zł/dobę</b
+        >
+      </p>
+      <br />
+      <p>Parking płatny <b>30 zł/dobę</b> - samochód osobowy</p>
+      <p>
+        <br />
+        Nr Konta do wpłaty zaliczki:
+        <b>PKO BP 56 1020 2124 0000 8602 0194 9312</b>
+      </p>
+      <br />
+      <p>Kod BIC (Swift): BPKOPLPW</p>
+    </section>
+    <footer>&copy; 2023 Mieszko Ośrodek Wczasowy by Wiktoria Grubizna</footer>
+
+    <script>
+      // Funkcja do rozwijania/zwijania menu
+      function toggleMenu() {
+        var menu = document.querySelector("nav ul");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+      }
+    </script>
+  </body>
+</html>

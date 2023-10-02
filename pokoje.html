@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mieszko Ośrodek Wczasowy</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Dancing+Script|Open+Sans:400,700&display=swap"
+    />
+    <style>
+      /* Resetowanie stylów domyślnych */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 50px;
+        border-bottom: 7px solid #0088ff;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      /* Styl nagłówka */
+      #site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(34, 34, 34, 0.96);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 40px;
+
+        color: #f9f9f9;
+      }
+
+      /* Styl nawigacji */
+      nav {
+        background-color: #222;
+        text-align: center;
+      }
+
+      /* Styl przycisku "Menu" */
+      .menu-button {
+        cursor: pointer;
+        background-color: transparent;
+        color: #fdfcfc;
+        border: 2px solid #fffefe;
+        padding: 10px 20px;
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        border-radius: 5px;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .menu-button:hover {
+        background-color: #fff;
+        color: #0088ff;
+        border-color: #0088ff;
+      }
+
+      /* Styl nawigacji głównej */
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #222;
+        width: 200px;
+        border-left: 5px solid #0088ff;
+        border-radius: 20px;
+        right: 15px;
+      }
+
+      nav ul li {
+        display: block;
+        margin: 0;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px;
+        display: block;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #0088ff;
+      }
+
+      /* Pokazanie nawigacji po najechaniu na przycisk "Menu" */
+      .menu-button:hover + ul {
+        display: block;
+      }
+
+      /* Styl stopki */
+      footer {
+        background-color: #222;
+        color: #fff;
+        text-align: center;
+      }
+      h2 {
+        text-align: center;
+      }
+      h3 {
+        text-align: center;
+      }
+      #galeria {
+        text-align: center;
+        width: 30%;
+        height: 50%;
+        padding: 20px;
+        border-top: 7px solid #222;
+        margin: 20px;
+      }
+      #expanded-image {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #expanded-image img {
+        max-width: 90%;
+        max-height: 90%;
+      }
+      /* Styl przycisków nawigacyjnych */
+      .nav-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        z-index: 10000;
+      }
+
+      #prev-button {
+        left: 20px;
+      }
+
+      #next-button {
+        right: 20px;
+      }
+      #close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+      }
+      /* Styl nagłówka dla małych ekranów */
+      @media screen and (max-width: 768px) {
+        #site-header {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+
+        h1 {
+          font-size: 30px;
+        }
+
+        .menu-button {
+          font-size: 16px;
+        }
+      }
+
+      /* Styl nawigacji głównej dla małych ekranów */
+      @media screen and (max-width: 768px) {
+        nav ul {
+          width: 100%; /* Rozwiń nawigację na całą szerokość ekranu */
+          border: none; /* Usuń obramowanie */
+          top: 50px; /* Przesuń nawigację niżej, aby nie kolidowała z nagłówkiem */
+        }
+
+        nav ul li {
+          margin: 10px 0;
+        }
+
+        nav ul li a {
+          padding: 5px;
+        }
+      }
+
+      /* Styl sekcji treści dla małych ekranów */
+      @media screen and (max-width: 768px) {
+        section {
+          padding: 20px;
+          margin: 10px;
+        }
+
+        section h2 {
+          font-size: 24px;
+        }
+
+        section p {
+          font-size: 14px;
+        }
+
+        section ul {
+          margin-left: 10px;
+        }
+
+        section li {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="site-header">
+      <header id="site-header">
+        <h1>Mieszko Ośrodek Wczasowy</h1>
+        <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Strona główna</a></li>
+          <li><a href="atrakcje.html">Atrakcje</a></li>
+          <li><a href="cennik.html">Cennik</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="lokalizacja.html">Lokalizacja</a></li>
+          <li><a href="muzeum.html">Muzeum figur bajkowych i woskowych</a></li>
+          <li><a href="sport.html">Oferta dla sportowców</a></li>
+          <li><a href="pokoje.html">Pokoje</a></li>
+          <li><a href="pakiety.html">Pakiety pobytowe</a></li>
+          <li><a href="regulamin.html">Regulamin</a></li>
+          <li><a href="rezerwacja.html">Rezerwacja</a></li>
+        </ul>
+      </nav>
+    </div>
+    <img id="site-image" src="strona_glowna.jpg" alt="Strona Główna" />
+    <h2>Galeria</h2>
+    <div id="expanded-image">
+      <button id="close-button" onclick="closeImage()">&#10006;</button>
+      <img id="expanded-img" src="" alt="Powiększony obraz" />
+      <button id="prev-button" class="nav-button" onclick="prevImage()">
+        &#10094;
+      </button>
+      <button id="next-button" class="nav-button" onclick="nextImage()">
+        &#10095;
+      </button>
+    </div>
+
+    <img id="galeria" src="pokoje.jpg" alt="galeria" />
+    <img id="galeria" src="pokoje1.jpg" alt="galeria" />
+    <img id="galeria" src="pokoje2.jpg" alt="galeria" />
+    <img id="galeria" src="pokoje3.jpg" alt="galeria" />
+
+    <img id="galeria" src="pokoje5.jpg" alt="galeria" />
+    <img id="galeria" src="pokoje6.jpg" alt="galeria" />
+    <img id="galeria" src="pokoje11.jpg" alt="galeria" />
+    <img id="galeria" src="pokoje12.jpg" alt="galeria" />
+    <img id="galeria" src="pokoje7.jpg" alt="galeria" />
+
+    <img id="galeria" src="pokoje9.jpg" alt="galeria" />
+    <img id="galeria" src="pokoje8.jpg" alt="galeria" />
+    <img id="galeria" src="pokoje10.jpg" alt="galeria" />
+
+    <h3>KARPACZ NIE DO OPOWIEDZENIA………..DO ZOBACZENIA!!!!!!</h3>
+    <br />
+    <footer>&copy; 2023 Mieszko Ośrodek Wczasowy by Wiktoria Grubizna</footer>
+
+    <script>
+      // Funkcja do rozwijania/zwijania menu
+      function toggleMenu() {
+        var menu = document.querySelector("nav ul");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+      }
+      // Funkcja do obsługi kliknięcia na obrazie
+      function expandImage(imgSrc) {
+        var expandedImage = document.getElementById("expanded-image");
+        var img = new Image();
+        img.src = imgSrc;
+
+        // klikalny obszar na powiększonym obrazie, aby można było go zamknąć
+        expandedImage.innerHTML = "";
+        expandedImage.appendChild(img);
+        expandedImage.style.display = "flex";
+
+        //  obsługę kliknięcia, aby zamknąć powiększony obraz
+        expandedImage.addEventListener("click", function () {
+          expandedImage.style.display = "none";
+        });
+      }
+
+      // funkcję expandImage do kliknięcia każdego obrazu galerii
+      var galeriaImages = document.querySelectorAll("#galeria");
+      for (var i = 0; i < galeriaImages.length; i++) {
+        galeriaImages[i].addEventListener("click", function () {
+          expandImage(this.src);
+        });
+      }
+      var galeriaImages = document.querySelectorAll("#galeria");
+      var currentImageIndex = 0;
+
+      // Funkcja do obsługi kliknięcia na obrazie
+      function expandImage(imgSrc) {
+        var expandedImage = document.getElementById("expanded-image");
+        var img = document.getElementById("expanded-img");
+        img.src = imgSrc;
+
+        // Wyświetl powiększony obraz
+        expandedImage.style.display = "flex";
+      }
+      // Funkcja do zamknięcia powiększonego obrazu
+      function closeImage() {
+        var expandedImage = document.getElementById("expanded-image");
+        expandedImage.style.display = "none";
+      }
+
+      // Funkcja do nawigacji do poprzedniego obrazu
+      function prevImage() {
+        currentImageIndex =
+          (currentImageIndex - 1 + galeriaImages.length) % galeriaImages.length;
+        expandImage(galeriaImages[currentImageIndex].src);
+      }
+
+      // Funkcja do nawigacji do następnego obrazu
+      function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % galeriaImages.length;
+        expandImage(galeriaImages[currentImageIndex].src);
+      }
+
+      // Przypisz funkcję expandImage do kliknięcia każdego obrazu galerii
+      for (var i = 0; i < galeriaImages.length; i++) {
+        galeriaImages[i].addEventListener("click", function () {
+          currentImageIndex = Array.from(galeriaImages).indexOf(this);
+          expandImage(this.src);
+        });
+      }
+    </script>
+  </body>
+</html>

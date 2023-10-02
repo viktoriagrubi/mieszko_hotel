@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mieszko Ośrodek Wczasowy</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Dancing+Script|Open+Sans:400,700&display=swap"
+    />
+    <style>
+      /* Resetowanie stylów domyślnych */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 50px;
+        border-bottom: 7px solid #0088ff;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      /* Styl nagłówka */
+      #site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(34, 34, 34, 0.96);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 40px;
+
+        color: #f9f9f9;
+      }
+
+      /* Styl nawigacji */
+      nav {
+        background-color: #222;
+        text-align: center;
+      }
+
+      /* Styl przycisku "Menu" */
+      .menu-button {
+        cursor: pointer;
+        background-color: transparent;
+        color: #fdfcfc;
+        border: 2px solid #fffefe;
+        padding: 10px 20px;
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        border-radius: 5px;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .menu-button:hover {
+        background-color: #fff;
+        color: #0088ff;
+        border-color: #0088ff;
+      }
+
+      /* Styl nawigacji głównej */
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #222;
+        width: 200px;
+        border-left: 5px solid #0088ff;
+        border-radius: 20px;
+        right: 15px;
+      }
+
+      nav ul li {
+        display: block;
+        margin: 0;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px;
+        display: block;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #0088ff;
+      }
+
+      /* Pokazanie nawigacji po najechaniu na przycisk "Menu" */
+      .menu-button:hover + ul {
+        display: block;
+      }
+
+      /* Styl stopki */
+      footer {
+        background-color: #222;
+        color: #fff;
+        text-align: center;
+      }
+      .contact {
+        background-color: #fff;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
+      .contact h2 {
+        font-size: 24px;
+        color: #0088ff;
+        margin-bottom: 10px;
+      }
+
+      .contact p {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+      /* Styl nagłówka dla małych ekranów */
+      @media screen and (max-width: 768px) {
+        #site-header {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+
+        h1 {
+          font-size: 30px;
+        }
+
+        .menu-button {
+          font-size: 16px;
+        }
+      }
+
+      /* Styl nawigacji głównej dla małych ekranów */
+      @media screen and (max-width: 768px) {
+        nav ul {
+          width: 100%; /* Rozwiń nawigację na całą szerokość ekranu */
+          border: none; /* Usuń obramowanie */
+          top: 50px; /* Przesuń nawigację niżej, aby nie kolidowała z nagłówkiem */
+        }
+
+        nav ul li {
+          margin: 10px 0;
+        }
+
+        nav ul li a {
+          padding: 5px;
+        }
+      }
+
+      /* Styl sekcji treści dla małych ekranów */
+      @media screen and (max-width: 768px) {
+        section {
+          padding: 20px;
+          margin: 10px;
+        }
+
+        section h2 {
+          font-size: 24px;
+        }
+
+        section p {
+          font-size: 14px;
+        }
+
+        section ul {
+          margin-left: 10px;
+        }
+
+        section li {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="site-header">
+      <header id="site-header">
+        <h1>Mieszko Ośrodek Wczasowy</h1>
+        <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Strona główna</a></li>
+          <li><a href="atrakcje.html">Atrakcje</a></li>
+          <li><a href="cennik.html">Cennik</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="lokalizacja.html">Lokalizacja</a></li>
+          <li><a href="muzeum.html">Muzeum figur bajkowych i woskowych</a></li>
+          <li><a href="sport.html">Oferta dla sportowców</a></li>
+          <li><a href="pokoje.html">Pokoje</a></li>
+          <li><a href="pakiety.html">Pakiety pobytowe</a></li>
+          <li><a href="regulamin.html">Regulamin</a></li>
+          <li><a href="rezerwacja.html">Rezerwacja</a></li>
+        </ul>
+      </nav>
+    </div>
+    <img id="site-image" src="strona_glowna.jpg" alt="Strona Główna" />
+    <div class="contact">
+      <h2>Regulamin</h2>
+      <p><b> REGULAMIN DW MIESZKO</b></p>
+      <p>
+        W trosce o zapewnienie Państwu spokojnego i bezpiecznego pobytu w naszym
+        DW MIESZKO prosimy o zapoznanie się i przestrzeganie poniższego
+        regulaminu
+      </p>
+      <p><b>PRZEDMIOT REGULAMINU</b></p>
+      <ol>
+        <li>
+          Regulamin określa zasady świadczenia usług, odpowiedzialności oraz
+          przebywania w Dw Mieszko i jest integralną częścią umowy, do której
+          zawarcia dochodzi poprzez zameldowanie się w obiekcie jak również
+          poprzez dokonanie rezerwacji lub zapłatę zaliczki lub całej należności
+          za pobyt w Dw Mieszko. Dokonując w/w czynności, Gość potwierdza, iż
+          zapoznał się i akceptuje warunki Regulaminu
+        </li>
+        <li>
+          Regulamin obowiązuje wszystkich Gości przebywających na terenie Dw
+          Mieszko
+        </li>
+      </ol>
+      <p><b>DOBA HOTELOWA</b></p>
+      <ol>
+        <li>
+          Pokój w Dw Mieszko wynajmowany jest na doby. Doba hotelowa trwa od
+          godziny 15.00 do godziny 10.00 dnia następnego.
+        </li>
+        <li>
+          Gość zobligowany jest do opłacenia kosztów za pobyt najpóźniej w dniu
+          przyjazdu do Dw Mieszko w recepcji podczas zameldowania.
+        </li>
+        <li>
+          Życzenie przedłużenia pobytu poza okres wskazany w dniu przybycia,
+          Gość powinien zgłosić w recepcji do godziny 9.00 dnia, w którym upływa
+          termin najmu pokoju.
+        </li>
+        <li>
+          Recepcja Dw Mieszko uwzględni życzenie przedłużenia pobytu w miarę
+          posiadanych możliwości, przy czym zastrzega, iż konieczna może być
+          zmiana pokoju.
+        </li>
+        <li>
+          Dw Mieszko zastrzega sobie prawo do odmowy przedłużenia pobytu Gości
+          na obiekcie w przypadku nie dokonania wcześniej pełnej płatności za
+          dotychczasowy pobyt.
+        </li>
+      </ol>
+      <p><b>REZERWACJA I MELDUNEK</b></p>
+      <ol>
+        <li>
+          Podstawą zameldowania Gościa jest okazanie pracownikowi Recepcji
+          dokumentu tożsamości ze zdjęciem.
+        </li>
+        <li>
+          Gość nie może udostępnić pokoju innym osobom, nawet jeśli nie upłynął
+          okres, za który uiścił należną za pobyt opłatę.
+        </li>
+        <li>
+          Osoby niezameldowane w Dw Mieszko mogą przebywać w pokoju Gości od
+          godziny 7.00 do godziny 22.00.
+        </li>
+        <li>
+          W przypadku rezygnacji gościa w trakcie trwania pobytu Dw Mieszko nie
+          zwraca opłaty za pobyt. Zwrotowi podlega jedynie opłata za wyżywienie.
+        </li>
+        <li>
+          W przypadku anulowania rezerwacji zaliczka na poczet pobytu lub innych
+          świadczonych usług nie jest zwracana.
+        </li>
+        <li>
+          Dw Mieszko może zwrócić 50% opłaty za pozostałe, niewykorzystane dni
+          pobytu wyłącznie w przypadku nagłego zachorowania Gościa,
+          potwierdzonego przez lekarza.
+        </li>
+      </ol>
+      <p><b>POSTANOWIENIA KOŃCOWE</b></p>
+      <ol>
+        <li>
+          Dw Mieszko przysługuje ustawowe prawo zastawu na rzeczach wniesionych
+          przez Gościa na obiekt w przypadku opóźnienia z uregulowaniem
+          płatności za pobyt lub nieuregulowaniem należności za świadczone
+          usługi.
+        </li>
+        <li>
+          Dzieci poniżej 12-go roku życia powinny znajdować się na terenie
+          obiektu pod stałym nadzorem opiekunów prawnych. Opiekunowie prawni
+          ponoszą odpowiedzialność materialną za wszelkie szkody powstałe w
+          wyniku działania dzieci.
+        </li>
+        <li>
+          Każdorazowo Gość opuszczający pokój, ze względów bezpieczeństwa,
+          powinien wyłączyć telewizor, zgasić światło, zakręcić krany oraz
+          zamknąć drzwi w sposób uniemożliwiający otwarcie ich niepowołanym
+          osobom. Ze względu na bezpieczeństwo przeciwpożarowe nie zezwala się
+          na używanie w pokojach grzejników, żelazek, czajników bezprzewodowych
+          i innych, podobnych urządzeń, nie stanowiących wyposażenia Dw Mieszko.
+          Zabrania się również używania otwartego ognia, w tym świec.
+        </li>
+        <li>
+          Recepcja wydaje Gościowi jeden klucz do pokoju, w przypadku zgubienia
+          klucza recepcja pobiera opłatę w wysokości 50zł.
+        </li>
+        <li>
+          Wyposażenie pokoju oraz części wspólnych jest własnością Dw Mieszko.
+          Gościom nie wolno dokonywać jakichkolwiek zmian w pokojach i ich
+          wyposażeniu.
+        </li>
+        <li>
+          Gość ponosi odpowiedzialność za wszelkiego rodzaju uszkodzenia lub
+          zniszczenia przedmiotów wyposażenia i urządzeń technicznych Dw Mieszko
+          powstałe z jego winy lub z winy odwiedzających go osób. Obiekt
+          zastrzega sobie prawo obciążenia Gościa za wyrządzone szkody po jego
+          wyjeździe.
+        </li>
+        <li>
+          Odpowiedzialność Dw Mieszko z tytułu utraty lub uszkodzenia pieniędzy,
+          papierów wartościowych, kosztowności albo przedmiotów mających wartość
+          naukową lub artystyczną jest wyłączona, jeżeli przedmioty te nie
+          zostaną oddane do depozytu w recepcji.
+        </li>
+        <li>
+          Usługa dodatkowej wymiany pościeli - na życzenie Gościa - jest
+          świadczona odpłatnie w cenie 15zł za komplet pościeli, sprzątanie
+          pokoju na życzenie Gościa 50zł. Worki na śmieci i papier toaletowy
+          znajdują się do pobrania w recepcji.
+        </li>
+        <li>Recepcja czynna jest całą dobę.</li>
+        <li>
+          W obiekcie obowiązuje całkowity zakaz palenia w pokojach oraz
+          częściach wspólnych. W przypadku naruszenia zakazu zostaną Państwo
+          obciążeni kosztami jonizowania pomieszczeń - 250zł i interwencji
+          straży pożarnej w przypadku włączenia się DSO - 500zł.
+        </li>
+        <li>W obiekcie obowiązuje cisza nocna od godziny 22.00 do 7.00.</li>
+        <li>
+          W Dw Mieszko akceptowane są zwierzęta po wcześniejszym uzgodnieniu i
+          dodatkową opłatą.
+        </li>
+      </ol>
+      <h2>PRZETWARZANIE DANYCH OSOBOWYCH</h2>
+      <p>
+        RODO, Dane osobowe przetwarzane będą w celu realizacji procesu
+        rezerwacji, wyjaśnienia okoliczności ewentualnego naruszenia Regulaminu
+        lub obowiązujących przepisów prawa, oraz rozpatrywania ewentualnych
+        reklamacji. Zgodnie z art. 13 ust. 1 i ust. 2 rozporządzenia Parlamentu
+        Europejskiego i Rady (UE) 2016/679 z 27 kwietnia 2016 r. w sprawie
+        ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w
+        sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy
+        95/46/WE (RODO), informujemy, że : Administratorem danych osobowych
+        pozyskanych w procesie rezerwacji w rozumieniu obowiązujących przepisów
+        prawa powszechnie obowiązującego, jest P.H.”Anna” Anna Zioło ul.
+        Mickiewicza 2 Karpacz 58-540 Podmiotem przetwarzającym dane osobowe jest
+        system rezerwacji online Hotres.pl, który należy do firmy LEMONPIXEL.pl
+        Roman Korczyński z siedzibą w Jeleniej Górze 58-570 ul. Młyńska 12A
+        nazywany dalej Hotres.pl
+      </p>
+      <p><b>Dane osobowe</b></p>
+      <ol>
+        <li>
+          Na potrzeby procesu rezerwacji / wystawienia dokumentu sprzedaży
+          pobierane są dane osobowe Gościa. Podanie danych osobowych jest
+          dobrowolne, jednak niezbędne do realizacji procesu rezerwacji.
+        </li>
+        <li>
+          Gość posiada prawo dostępu do treści swoich danych osobowych, prawo do
+          ich sprostowania, usunięcia, jak również prawo do ograniczenia ich
+          przetwarzania.
+        </li>
+        <li>
+          Opcjonalna zgoda Gościa na przetwarzanie danych w celach
+          marketingowych wymaga zaznaczenia odpowiedniego pola typu 'checkbox' w
+          procesie rezerwacji. Zgoda ta może być cofnięta poprzez przesłanie
+          odpowiedniej wiadomości na adres e-mail: recepcja@mieszko.karpacz.pl.
+        </li>
+        <li>
+          Szczegółowe cele i zakres przetwarzania danych osobowych w systemie
+          Hotres określone są w załączniku.
+        </li>
+      </ol>
+      <p><b>Zobowiązania Administratora</b></p>
+      <ol>
+        <li>
+          Administrator zapewnia, że dane osobowe Gościa nie są udostępniane
+          osobom trzecim i w tym zakresie podejmie niezbędne środki i zapewni
+          wykorzystanie swojej wiedzy i doświadczenia w celu realizacji
+          przedmiotowego zapewnienia.
+        </li>
+        <li>
+          Administrator zachowuje prawo udostępnienia danych osobowych podmiotom
+          upoważnionym (Podprocesorzy) oraz w przypadkach przewidzianych
+          przepisami prawa powszechnie obowiązującego. W szczególności dotyczy
+          to podmiotów jakich jak: systemy realizujące płatności online oraz
+          oprogramowanie recepcji.
+        </li>
+        <li>
+          Administrator zobowiązany jest do dotrzymania tajemnicy i poufności
+          informacji uzyskanych w celu realizacji procesu rezerwacji. Podjęte
+          zobowiązanie pozostaje w mocy przez czas nieokreślony.
+        </li>
+      </ol>
+      <p><b>Zobowiązania Hotres.pl</b></p>
+      <ol>
+        <li>
+          Hotres.pl jako Podmiot przetwarzający dane osobowe Gościa, zapewnia
+          wdrożenie odpowiednich środków technicznych i organizacyjnych, oraz
+          dodatkowych zabezpieczeń informatycznych, opierających się na
+          sprawdzonych serwerach i systemach służących do przetwarzania danych
+          osobowych w usługach świadczonych drogą elektroniczną.
+        </li>
+        <li>
+          Hotres.pl oświadcza, że systemy informatyczne wykorzystywane do
+          przetwarzania danych osobowych spełniają wymogi obowiązujących
+          przepisów prawa, w szczególności chronione są w stopniu wysokim w
+          rozumieniu rozporządzenia Ministra Spraw Wewnętrznych i Administracji
+          z dnia 29 kwietnia 2004 r. w sprawie dokumentacji przetwarzania danych
+          osobowych oraz warunków technicznych i organizacyjnych, jakim powinny
+          odpowiadać urządzenia i systemy informacyjne służące do przetwarzania
+          danych osobowych.
+        </li>
+        <li>
+          Podwykonawcy i pracownicy Hotres.pl zostaną należycie umocowani do
+          przetwarzania danych osobowych w związku z realizacją procesu
+          rezerwacji, na co Administrator oraz Gość wyrażają zgodę.
+        </li>
+        <li>
+          W celu zapewnienia najwyższego bezpieczeństwa w przechowywaniu danych
+          osobowych zgodnych z wymogami RODO, Hotres.pl zobowiązany się do:
+        </li>
+        <ol>
+          <li>Szyfrowania oraz anonimizacji transmisji danych osobowych</li>
+          <li>
+            Ciągłego zapewnienia poufności, integralności, dostępności i
+            odporności systemów i usług przetwarzania
+          </li>
+          <li>
+            Zdolności do szybkiego przywrócenia dostępności danych osobowych i
+            dostępu do nich w razie incydentu fizycznego lub technicznego
+          </li>
+          <li>
+            Regularnego testowania, mierzenia i oceniania skuteczności środków
+            technicznych i organizacyjnych mających zapewnić bezpieczeństwo
+            przetwarzania danych.
+          </li>
+        </ol>
+      </ol>
+
+      <ol>
+        <li>Szyfrowania oraz anonimizacji transmisji danych osobowych</li>
+        <li>
+          Ciągłego zapewnienia poufności, integralności, dostępności i
+          odporności systemów i usług przetwarzania
+        </li>
+        <li>
+          Zdolności do szybkiego przywrócenia dostępności danych osobowych i
+          dostępu do nich w razie incydentu fizycznego lub technicznego
+        </li>
+        <li>
+          Regularnego testowania, mierzenia i oceniania skuteczności środków
+          technicznych i organizacyjnych mających zapewnić bezpieczeństwo
+          przetwarzania danych.
+        </li>
+      </ol>
+      <p><b>Postanowienia końcowe</b></p>
+      <p>
+        Administrator jest uprawniony do wprowadzenia zmian w postanowieniach
+        Regulaminu w każdym czasie i zależnie od własnej decyzji. W
+        szczególności, może dokonać zmiany postanowień niniejszego Regulaminu w
+        przypadku:
+      </p>
+      <ol>
+        <li>
+          Konieczności dostosowania Regulaminu do przepisów bezwzględnie
+          obowiązujących lub do zmian przepisów prawa mających wpływ na treść
+          Regulaminu;
+        </li>
+        <li>
+          Konieczności dostosowania Regulaminu do zalecenia, interpretacji,
+          orzeczenia, postanowienia lub decyzji organu władzy publicznej lub
+          orzeczenia sądowego, mającego wpływ na treść Regulaminu;
+        </li>
+        <li>Rozbudowy lub zmiany funkcjonalności Hotres.pl;</li>
+      </ol>
+    </div>
+    <footer>&copy; 2023 Mieszko Ośrodek Wczasowy by Wiktoria Grubizna</footer>
+
+    <script>
+      // Funkcja do rozwijania/zwijania menu
+      function toggleMenu() {
+        var menu = document.querySelector("nav ul");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+      }
+    </script>
+  </body>
+</html>

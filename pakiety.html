@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mieszko Ośrodek Wczasowy</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Dancing+Script|Open+Sans:400,700&display=swap"
+    />
+    <style>
+      /* Resetowanie stylów domyślnych */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 50px;
+        border-bottom: 7px solid #0088ff;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #7ca8ff2e;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      /* Styl nagłówka */
+      #site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(34, 34, 34, 0.96); 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 40px; 
+
+        color: #f9f9f9;
+      }
+
+      /* Styl nawigacji */
+      nav {
+        background-color: #222;
+        text-align: center;
+      }
+
+      /* Styl przycisku "Menu" */
+      .menu-button {
+        cursor: pointer;
+        background-color: transparent;
+        color: #fdfcfc;
+        border: 2px solid #fffefe;
+        padding: 10px 20px;
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        border-radius: 5px;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .menu-button:hover {
+        background-color: #fff;
+        color: #0088ff;
+        border-color: #0088ff;
+      }
+
+      /* Styl nawigacji głównej */
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #222;
+        width: 200px;
+        border-left: 5px solid #0088ff;
+        border-radius: 20px;
+        right: 15px;
+      }
+
+      nav ul li {
+        display: block;
+        margin: 0;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px;
+        display: block;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #0088ff;
+      }
+
+      /* Pokazanie nawigacji po najechaniu na przycisk "Menu" */
+      .menu-button:hover + ul {
+        display: block;
+      }
+
+      /* Styl sekcji treści */
+      section {
+        background-color: #fff;
+        padding: 50px;
+        margin: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      }
+
+      section h2 {
+        font-size: 28px;
+        color: #222;
+        margin-bottom: 10px;
+        font-family: "Pacifico", cursive;
+        color: #121212;
+      }
+
+      section p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      section ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        
+      }
+
+      section li {
+        font-size: 16px;
+        color: #333;
+        line-height: 1.5;
+        
+      }
+
+      /* Styl stopki */
+      footer {
+        background-color: #222;
+        color: #fff;
+        text-align: center;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      b {
+        color: #0088ff;
+      }
+
+      .highlight {
+        text-decoration: none; 
+  background-color: #e22b2b63; 
+  color: white; 
+  padding: 2px 6px; 
+  border-radius: 4px
+}
+/* Styl nagłówka dla małych ekranów */
+@media screen and (max-width: 768px) {
+  #site-header {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .menu-button {
+    font-size: 16px;
+  }
+}
+
+/* Styl nawigacji głównej dla małych ekranów */
+@media screen and (max-width: 768px) {
+  nav ul {
+    width: 100%; /* Rozwiń nawigację na całą szerokość ekranu */
+    border: none; /* Usuń obramowanie */
+    top: 50px; /* Przesuń nawigację niżej, aby nie kolidowała z nagłówkiem */
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  nav ul li a {
+    padding: 5px;
+  }
+}
+
+/* Styl sekcji treści dla małych ekranów */
+@media screen and (max-width: 768px) {
+  section {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  section h2 {
+    font-size: 24px;
+  }
+
+  section p {
+    font-size: 14px;
+  }
+
+  section ul {
+    margin-left: 10px;
+  }
+
+  section li {
+    font-size: 14px;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <div id="site-header">
+      <header id="site-header">
+        <h1>Mieszko Ośrodek Wczasowy</h1>
+        <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+      </header>
+      <nav>
+        <ul>
+            <li><a href="index.html">Strona główna</a></li>
+            <li><a href="atrakcje.html">Atrakcje</a></li>
+            <li><a href="cennik.html">Cennik</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="lokalizacja.html">Lokalizacja</a></li>
+            <li><a href="muzeum.html">Muzeum figur bajkowych i woskowych</a></li>
+            <li><a href="sport.html">Oferta dla sportowców</a></li>
+            <li><a href="pokoje.html">Pokoje</a></li>
+            <li><a href="pakiety.html">Pakiety pobytowe</a></li>
+            <li><a href="regulamin.html">Regulamin</a></li>
+            <li><a href="rezerwacja.html">Rezerwacja</a></li>
+        </ul>
+      </nav>
+    </div>
+    <img id="site-image" src="strona_glowna.jpg" alt="Strona Główna" />
+    <br>
+    <br>
+    
+    <h2><a href="#" class="highlight">Pakiety pobytowe</a></h2>
+    <section>
+      <h2>Wielkanoc 2023</h2>
+      <p>
+        Drodzy Goście,
+        <br /><br />
+        z myślą o Was przygotowaliśmy specjalną Ofertę Wielkanocną. Wyjątkowo
+        ciepła,uroczysta i rodzinna atmosfera, do tego Wielkanocny ,syto
+        zastawiony stół.
+      </p>
+      <h2>Pakiet Wielkanocny 2023 obejmuje:</h2>
+      <ul>
+        <li>3 noclegi ze śniadaniami,w tym uroczyste Śniadanie Wielkanocne,</li>
+        <li>3 obiadokolacje trzydaniowe ,serwowane</li>
+        <li>korzystanie ze SPA</li>
+        <li>wspólne malowanie pisanek(dla dzieci)</li>
+        <li>dostęp do Groty Solnej</li>
+        <li>dodatkowo bezpłatny ,dostęp do WI-FI</li>
+      </ul>
+      <br />
+      <b>Pobyt w terminie 8.04 - 11.04.2023 r.</b>
+      <br />
+      <b> pakietu – 600 zł/osobę</b>
+      <br />
+      <b>Dzieci do lat 3 - gratis ,od 4-12 lat 50 % zniżki .</b>
+      <br />
+      <b>Serdecznie zapraszamy !</b>
+    </section>
+    <section>
+      <h2>Majówka 2023</h2>
+      <p>
+        <br /><br />
+        Zapraszamy do spędzenia długiego weekendu majowego w górach, spacerując
+        po szlakach, ciesząc się wiosenną przyrodą w ciepłych promieniach
+        słońca. Z myślą o Państwu przygotowaliśmy specjalną ofertę.
+      </p>
+      <h2>Pakiet Majówka obejmuje:</h2>
+      <ul>
+        <li>3 noclegów ze śniadaniami w formie bufetu szwedzkiego,</li>
+        <li>3 obiadokolacji w formie bufetu szwedzkiego,</li>
+        <li>korzystanie z Groty Solnej</li>
+        <li>korzystanie ze spa</li>
+        <li>dostęp do WI-FI.</li>
+      </ul>
+      <br />
+      <b>Pobyt w terminie między 28.04 i 04.05.2023 r.</b>
+      <br />
+      <b> Koszt pakietu-600 zł/os.</b>
+      <br />
+      <b>Dzieci do lat 3-nieodpłatnie,dzieci od 4-12 lat 50% zniżki</b>
+      <br />
+      <b>ZAPRASZAMY!</b>
+    </section>
+    <section>
+      <h2>DŁUGI WEEKEND CZEWCOWY
+      <p>
+        Boże Ciało 2023 - DŁUGI WEEKEND CZERWCOWY !
+        <br /><br />
+        Zapraszamy do skorzystania z kolejnego wiosennego
+
+weekendu w górach- dni coraz dłuższe, wieczory cieplejsze…</h2>
+      </p>
+      <h2>W pakiecie Boże Ciało 2023  proponujemy Państwu :</h2>
+      <ul>
+        <li> 3 noclegi wraz ze śniadaniami w formie bufetu szwedzkiego,</li>
+        <li> 3 obiadokolacje w formie bufetu szwedzkiego</li>
+        <li>korzystanie z Groty Solnej/li>
+        <li>wspólne malowanie pisanek(dla dzieci)</li>
+        <li>dostęp do WI-FI</li>
+        
+      </ul>
+      <br />
+      <b>Pobyt w terminie :8-13.06.2023  r.</b>
+      <br />
+      <b> Koszt pakietu- 600 zł/os.</b>
+      <br />
+      <b>Dzieci do lat 3-  pobyt gratis,  w wieku od 4 do 12 lat -50 %zniżki</b>
+      <br />
+      <b>ZAPRASZAMY !</b>
+    </section>
+    <section>
+      <h2>Magiczne Boże Narodzenie 2023</h2>
+      <p>
+        MAGICZNE BOŻE NARODZENIE 2023  W MIESZKU
+        <br /><br />
+        Nie ma nic piękniejszego niż ciepłe, rodzinne Święta Bożego Narodzenia spędzone w górach.
+
+Zimowy krajobraz Karkonoszy zachwyci każdego, dlatego zapraszamy Państwa do pobytu u nas właśnie w tym okresie.
+
+ 
+
+Z okazji Świąt Bożego Narodzenia przygotowaliśmy dla Państwa szczególny pakiet.
+      </p>
+      <h2>W cenie pakietu:</h2>
+      <ul>
+        <li>5 noclegów ze śniadaniami</li>
+        <li>korzystanie z Groty Solnej</li>
+        <li>korzystanie z saun i jacuzzi</li>
+        <li>wspólne malowanie pisanek(dla dzieci)</li>
+        <li>dodatkowo bezpłatny ,dostęp do WI-FI</li>
+      </ul>
+      <br />
+      <b>Cena pobytu w ramach pakietu dla osoby dorosłej wynosi 1100  zł.</b>
+      <br />
+      <b> Termin pakietu pomiędzy : 22-27.12.2023 r.</b>
+      <br />
+      <b>Dzieci do lat 3 - gratis ,od 4-12 lat 50 % zniżki .</b>
+      <br />
+      <b>Serdecznie zapraszamy !</b>
+    </section>
+    <section>
+      <h2>Sylwester 2023/2024</h2>
+      <p>
+        SYLWESTER  2023/2024 W KARKONOSZACH  Mieszko Karpacz
+        <br /><br />
+        Zapraszamy  do spędzenia z nami wspaniałego  pobytu Sylwestrowego .
+
+Mamy pewność, że przygotowane przez naszą Szefową Kuchni menu zachwyci Państwa różnorodnością potraw i delikatnością smaku.
+
+Z tej okazji przygotowaliśmy dla Państwa specjalny pakiet w dniach 28.12.2023 r.-02.01.2024 r.( termin można dostosować  do własnych potrzeb).
+      </p>
+      <h2>W cenie pakietu:</h2>
+      <ul>
+        <li>5 noclegów</li>
+        <li>5 śniadań w formie bufetu szwedzkiego</li>
+        <li>korzystanie z Groty Solnej</li>
+        <li>korzystanie z jacuzzi i saun</li>
+        
+        <li>bezprzewodowy internet</li>
+      </ul>
+      <br />
+      <b>Cena pobytu w ramach pakietu dla osoby dorosłej wynosi 1250 zł.</b>
+      
+      <br />
+      <b>Dzieci do lat 3 - gratis ,od 4-12 lat 50 % zniżki .</b>
+      <br />
+      <b>Serdecznie zapraszamy !</b>
+    </section>
+
+    <footer>&copy; 2023 Mieszko Ośrodek Wczasowy by Wiktoria Grubizna</footer>
+
+    <script>
+      // Funkcja do rozwijania/zwijania menu
+      function toggleMenu() {
+        var menu = document.querySelector("nav ul");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+      }
+    </script>
+  </body>
+</html>
